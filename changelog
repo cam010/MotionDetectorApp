@@ -1,0 +1,72 @@
+Changelog
+---------
+
+- Version 1.2.1 08/05/23 
+    * Application now starts in zoomed mode
+    * Changed how motions are updated and shown on screen to make it smoother
+
+- Version 1.2.0 01/05/23 -> The "piggyback" update
+    * Started developing "dark" and "light" themes for the app, got lazy and instead used the "Equilux" ttk theme
+    * "disable source" button switches to "enable source" when clicked
+
+- Version 1.1.5 30/04/23
+    * Added a "disable source" button
+
+- Version 1.1.4 29/04/23
+    * Fixed "IMPORTANT" bug "Now FPS is increased, it is much faster than the actual video FPS. Needs to be set to video frame rate." and set a video playback to max fps of the video. Note, may be less than this due to large video resolutions.
+
+- Version 1.1.3 26/04/23
+    * Fixed "IMPORTANT" bug "videos opened take much longer in the player and run at about 9-10frames/second" by removing self.camera.set(cv2.CAP_PROP_POS_FRAMES, self.frame_num - 1) line in controller. This was an unnecessary line and slowed the fps down by nearly 10x.
+    * Fixed "IMPORTANT" bug "when camera is paused, motion updates are very slow and glitchy" by adding a time delay before continue statement in while True loop threads
+    * Motion no longer updates when paused
+
+- Version 1.1.2 25/04/23
+    * Added "Switch to Camera Mode" button in menu, is disabled when camera is already opened. Keyboard shortcut Ctrl+I
+    * Changed order of proceedings when controller.changed_source is called, meaning no chance of error when switching from camera to video file
+
+- Version 1.1.1 25/04/23 (The Early Hours Of)
+    * Added "Source Settings" menu, currently has "Open Video File" option
+    * Changed "Rect Settings" menu to "Frame Settings"
+    * Changed "Output Settings" frame to "Frame Settings"
+    * Added "Flip Frame" option to "Frame Settings" menu
+    * Added accelerators for certain menubar settings along with keybindings
+
+- Version 1.1.0 24/04/23
+    * Changed menubar button "rect settings"->"minimum rect size" to "minimum rect area"
+
+
+- Version 1.0.6 23/04/23 -> The "first of many" update
+    * Fixed "CRITICAL" bug "error when moving slider in minimum rect size scale widget causes too much recursion and app to crash. Only caused on minimum rect size scale, not motion sensitivity"
+    * Fixed "Urgent" bug "minimum rect size menu in menubar not moving scale when size selected"
+    * Fixed "Urgent" bug "minimum custom rect size menu "custom" selection does nothing, needs implementing to new CustomInputWindow class"
+    * Implemented a generic custom input window for menubar settings to come in future, currently used for "rect settings"->"minimum rect size"->"custom"
+
+- Version 1.0.5 21/04/23
+    * Can now install all dependencies at once using the command: "pip install -r requirements.txt"
+
+- Version 1.0.4 20/04/23 -> The "Yep it broke" Update
+    * Fixed "IMPORTANT" bug "enable rect drawing button in menu not showing selected on app start"
+    * Started to implement CustomInputWindow for settings that require a custom input. This aims to be a global widget to be used by all settings that require custom input. Base class writted, just needs implementing into settings. Having problem with awaiting user input and threading.
+    * No longer prints window size on play/pause
+    * 1 "CRITICAL" bug found: "error when moving slider in minimum rect size scale widget causes too much recursion and app to crash. Only caused on minimum rect size scale, not motion sensitivity"
+
+- Version 1.0.3 19/04/23
+    * Implemented custom ttk Scale widgets with custom sample images.
+
+- Version 1.0.2 18/04/23
+    * Restructured file system, reflected in README
+
+- Version 1.0.1 17/04/23 -> The "t...tk?" Update
+    * Changed "Detector Modifiers" Frame to a Labelframe and renamed "Output Settings"
+    * Changed "Recent Motion Detections" Frame to a Labelframe and renamed "Recent Motions"
+    * Changed "camera settings" Frame to a Labelframe
+    * Updated all tk buttons to ttk buttons
+    * Updated all tk labels to ttk labels
+    * Updated all tk scales to ttk scales
+    * Changed "Output Video Colour" from a tk OptionMenu to a ttk Combobox
+    * Added a separator between "Flip Image" and "Output Video Colour" options
+    * Added a Style module
+    * Created custom styles for Combobox, Labelframe, Checkbutton, Label, Button and Separator
+
+- Version 1.0 15/04/23
+    * initial release
